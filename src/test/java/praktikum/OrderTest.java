@@ -20,6 +20,7 @@ public class OrderTest {
     private final String secondName;
 
     private final String number;
+    private final String date;
     private final String address;
 
     private final String rentalPeriod;
@@ -27,13 +28,14 @@ public class OrderTest {
     private final int metroPoint;
 
 
-    public OrderTest(String buttonChoose, String name, String secondName, String address, int metroPoint, String number, String rentalPeriod) {
+    public OrderTest(String buttonChoose, String name, String secondName, String address,int metroPoint, String number, String date, String rentalPeriod) {
         this.buttonChoose = buttonChoose;
         this.name = name;
         this.secondName = secondName;
         this.address = address;
         this.metroPoint = metroPoint;
         this.number = number;
+        this.date = date;
         this.rentalPeriod = rentalPeriod;
     }
 
@@ -41,7 +43,7 @@ public class OrderTest {
     public static Object[][] getOrderData() {
         return new Object[][] {
                 {"Up","Константин", "Давыдочкин", "Охотный ряд 2", 4, "+79994442211", "28", "двое суток"},
-                {"Down", "Максим", "Лисицын", "Охотный ряд 4", 9, "+79134135699", "01", "трое суток"},
+                {"Down", "Максим", "Лисицын", "Охотный ряд 4", 9, "+79134135699", "01", "сутки"},
         };
     }
 
@@ -57,7 +59,7 @@ public class OrderTest {
             objMainPage.clickOrderUpButton();
         } else objMainPage.clickOrderDownButton();
 
-        objOrderPage.makeOrder(name, secondName, address, metroPoint, number, rentalPeriod);
+        objOrderPage.makeOrder(name, secondName, address, metroPoint, number, date, rentalPeriod);
         MatcherAssert.assertThat(objOrderPage.headerOrderConfirm(), containsString("Заказ оформлен"));
 
     }

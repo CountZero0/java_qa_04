@@ -77,6 +77,7 @@ public class OrderPage {
     public void clickYesButton() {
         driver.findElement(yesButton).click();
     }
+
     public void clickRentalPeriod(String rentalPeriod) {
         driver.findElement(periodField).click();
         driver.findElement(By.xpath(".//div[text()='"+ rentalPeriod + "']")).click();
@@ -87,7 +88,7 @@ public class OrderPage {
     }
 
     public void makeOrder(String name, String secondName, String address, int metroPoint,
-                          String number, String rentalPeriod) {
+                          String number, String date, String rentalPeriod) {
         setName(name);
         setSecondName(secondName);
         setAddress(address);
